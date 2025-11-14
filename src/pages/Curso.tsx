@@ -174,8 +174,7 @@ const Curso = () => {
                     onClick={() => {
                       const firstModule = courseModules[0];
                       if (firstModule?.lessons[0]) {
-                        setSelectedModule(firstModule.id);
-                        document.getElementById('modulos-tab')?.click();
+                        navigate(`/curso/modulo/${firstModule.id}/aula/${firstModule.lessons[0].id}`);
                       }
                     }}
                   >
@@ -266,7 +265,11 @@ const Curso = () => {
                                           <p className="text-xs text-gray-500">{lesson.estimatedMinutes} min</p>
                                         </div>
                                       </div>
-                                      <Button size="sm" variant="ghost">
+                                      <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        onClick={() => navigate(`/curso/modulo/${module.id}/aula/${lesson.id}`)}
+                                      >
                                         {lessonCompleted ? "Revisar" : "Iniciar"}
                                       </Button>
                                     </div>

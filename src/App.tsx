@@ -10,6 +10,7 @@ import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import AuctionVerifierPage from "./pages/AuctionVerifierPage";
 import Curso from "./pages/Curso";
+import LessonViewer from "./pages/LessonViewer";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/verificador-leiloes" element={<AuctionVerifierPage />} />
             <Route path="/curso" element={<Curso />} />
+            <Route path="/curso/modulo/:moduleId/aula/:lessonId" element={<LessonViewer />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
