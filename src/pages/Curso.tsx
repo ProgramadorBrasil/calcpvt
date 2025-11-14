@@ -18,7 +18,9 @@ import {
   Target,
   Users,
   FileText,
-  TrendingUp
+  TrendingUp,
+  HelpCircle,
+  ListChecks
 } from "lucide-react";
 
 const Curso = () => {
@@ -186,7 +188,7 @@ const Curso = () => {
                   </ul>
                 </div>
 
-                <div className="pt-4 border-t">
+                <div className="pt-4 border-t space-y-4">
                   <Button
                     size="lg"
                     className="w-full md:w-auto"
@@ -200,6 +202,27 @@ const Curso = () => {
                     Começar Curso Agora
                     <GraduationCap className="ml-2 h-5 w-5" />
                   </Button>
+
+                  <div className="grid md:grid-cols-2 gap-4 mt-4">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full"
+                      onClick={() => navigate("/curso/faq")}
+                    >
+                      <HelpCircle className="mr-2 h-5 w-5" />
+                      FAQ - Perguntas Frequentes
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full"
+                      onClick={() => navigate("/curso/checklist")}
+                    >
+                      <ListChecks className="mr-2 h-5 w-5" />
+                      Checklist do Leilão
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
