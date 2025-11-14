@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Calculadora de Leilões Brasil
 
 ## Project info
 
