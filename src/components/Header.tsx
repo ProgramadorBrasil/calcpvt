@@ -1,13 +1,28 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calculator, FileCheck, Link, BookOpen } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Calculator, FileCheck, Link, BookOpen, GraduationCap } from "lucide-react";
 
 const Header = ({ activeTab, setActiveTab }: { activeTab: string, setActiveTab: (tab: string) => void }) => {
+  const navigate = useNavigate();
+
   return (
     <header className="w-full financial-gradient text-white">
       <div className="container px-4 py-6 mx-auto">
-        <h1 className="text-2xl md:text-3xl font-bold mb-2">Calculadora de Leilão de Imóveis</h1>
+        <div className="flex items-center justify-between mb-2">
+          <h1 className="text-2xl md:text-3xl font-bold">Calculadora de Leilão de Imóveis</h1>
+          <Button
+            variant="outline"
+            className="bg-white/10 hover:bg-white/20 text-white border-white/30"
+            onClick={() => navigate('/curso')}
+          >
+            <GraduationCap className="h-4 w-4 mr-2" />
+            <span className="hidden md:inline">Curso TJPE</span>
+            <span className="md:hidden">Curso</span>
+          </Button>
+        </div>
         <p className="text-sm md:text-base opacity-90 mb-6">
           Estime custos, verifique requisitos e encontre as melhores oportunidades de investimento
         </p>
