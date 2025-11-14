@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { courseModules, getLessonById } from "@/data/courseContent";
 import { useCourseProgress } from "@/hooks/useCourseProgress";
 import ContentRenderer from "@/components/curso/ContentRenderer";
+import VoiceControl from "@/components/curso/VoiceControl";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
@@ -85,6 +86,23 @@ const LessonViewer = () => {
     }
   };
 
+  // Extract lesson text for voice reading
+  const lessonText = useMemo(() => {
+    const texts: string[] = [];
+    texts.push(`Módulo ${module.number}: ${module.title}`);
+    texts.push(`Aula: ${lesson.title}`);
+    texts.push(lesson.description);
+
+    lesson.sections.forEach((section) => {
+      texts.push(section.content);
+      if (section.metadata?.items) {
+        texts.push(...section.metadata.items);
+      }
+    });
+
+    return texts.join('. ');
+  }, [lesson, module]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
@@ -159,6 +177,9 @@ const LessonViewer = () => {
           </CardHeader>
 
           <CardContent className="prose max-w-none">
+            {/* Voice Control */}
+            <VoiceControl text={lessonText} />
+
             <ContentRenderer sections={lesson.sections} />
 
             {/* Mark as Complete Button */}
