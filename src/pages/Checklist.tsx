@@ -31,298 +31,566 @@ const Checklist = () => {
         {
           id: "prep-1",
           text: "Verificar se há penhora devidamente registrada",
-          details: "Confirmar averbação da penhora na matrícula do imóvel",
+          details: "Confirmar averbação da penhora na matrícula do imóvel no Cartório de Registro de Imóveis",
           critical: true
         },
         {
           id: "prep-2",
           text: "Solicitar certidão de matrícula atualizada",
-          details: "Máximo 30 dias de emissão, verificar todos os ônus e averbações",
+          details: "Máximo 30 dias de emissão, verificar todos os ônus, averbações, hipotecas, penhoras anteriores",
           critical: true
         },
         {
           id: "prep-3",
           text: "Verificar se há avaliação válida (menos de 1 ano)",
-          details: "Se > 1 ano, solicitar nova avaliação judicial"
+          details: "Se > 1 ano, solicitar nova avaliação judicial através de perito designado pelo juiz",
+          critical: true
         },
         {
           id: "prep-4",
           text: "Conferir documentação do processo completa",
-          details: "Petição inicial, citações, penhora, avaliação, certidões"
+          details: "Petição inicial, citações, penhora, avaliação, certidões, manifestações das partes"
+        },
+        {
+          id: "prep-5",
+          text: "Verificar se executado foi intimado da penhora",
+          details: "Confirmar intimação pessoal ou por edital, com comprovante nos autos",
+          critical: true
+        },
+        {
+          id: "prep-6",
+          text: "Consultar se há embargos ou impugnações pendentes",
+          details: "Verificar na movimentação processual se há recursos ou incidentes em andamento"
         }
       ]
     },
     {
-      title: "2. Pesquisa de Débitos",
-      description: "Levantamento completo de todos os débitos do imóvel",
+      title: "2. Pesquisa Completa de Débitos",
+      description: "Levantamento detalhado de todos os débitos e ônus do imóvel",
       items: [
         {
           id: "deb-1",
-          text: "Consultar débitos de IPTU na Prefeitura",
-          details: "Valores, anos em aberto, taxa mensal atual",
+          text: "Consultar débitos de IPTU na Prefeitura Municipal",
+          details: "Valores, anos em aberto, taxa anual atual, possíveis parcelamentos",
           critical: true
         },
         {
           id: "deb-2",
-          text: "Verificar débitos condominiais (se aplicável)",
-          details: "Valor total, taxa mensal, nome do síndico para contato",
-          critical: true
+          text: "Solicitar certidão negativa ou positiva de IPTU",
+          details: "Documento oficial da Prefeitura para anexar aos autos"
         },
         {
           id: "deb-3",
-          text: "Consultar débitos federais",
-          details: "ITR (se rural), certidão de débitos da RFB"
+          text: "Verificar débitos condominiais (se aplicável)",
+          details: "Valor total, taxa mensal, contato do síndico/administradora, taxas extraordinárias",
+          critical: true
         },
         {
           id: "deb-4",
-          text: "Verificar débitos estaduais",
-          details: "ITCD, IPVA (se garagem), outros tributos estaduais"
+          text: "Consultar débitos federais (RFB)",
+          details: "ITR se imóvel rural, certidão de débitos da Receita Federal"
         },
         {
           id: "deb-5",
-          text: "Pesquisar ônus e gravames na matrícula",
-          details: "Hipotecas, penhoras, servidões, usufrutos"
+          text: "Verificar débitos estaduais",
+          details: "ITCD, IPVA se garagem com vaga vinculada, outros tributos estaduais"
+        },
+        {
+          id: "deb-6",
+          text: "Pesquisar TODOS os ônus e gravames na matrícula",
+          details: "Hipotecas, penhoras anteriores, servidões, usufrutos, superfície, anticrese",
+          critical: true
+        },
+        {
+          id: "deb-7",
+          text: "Identificar credores com garantia real",
+          details: "Listar nome completo, CPF/CNPJ, tipo de garantia (hipoteca, penhora, etc.)",
+          critical: true
+        },
+        {
+          id: "deb-8",
+          text: "Verificar débitos de água, luz e gás",
+          details: "Consultar COMPESA, CELPE/Neoenergia - informar no edital se existem"
         }
       ]
     },
     {
       title: "3. Elaboração do Edital",
-      description: "Confecção do edital com todas as informações obrigatórias",
+      description: "Confecção do edital com todas as informações obrigatórias - DIRETORIA CÍVEL",
       items: [
         {
           id: "edit-1",
-          text: "Identificação completa do imóvel",
-          details: "Matrícula, endereço completo, metragem, características",
+          text: "Cabeçalho: Poder Judiciário do Estado de Pernambuco",
+          details: "Nome da comarca, vara, juiz titular, processo nº",
           critical: true
         },
         {
           id: "edit-2",
-          text: "Valor da avaliação atualizado",
-          details: "Com índice usado para correção e data base",
+          text: "Identificação completa e detalhada do imóvel",
+          details: "Matrícula nº, Cartório, endereço completo com CEP, metragem (área total e construída), limites e confrontações",
           critical: true
         },
         {
           id: "edit-3",
-          text: "Datas e valores do 1º e 2º leilão",
-          details: "2º leilão: até 25% menor que o 1º",
-          critical: true
+          text: "Descrição das características do imóvel",
+          details: "Tipo (casa, apartamento, terreno), nº de quartos, vagas, estado de conservação, benfeitorias"
         },
         {
           id: "edit-4",
-          text: "Incluir cláusula do Art. 130 do CTN",
-          details: "Especificar sub-rogação de tributos no preço",
+          text: "Valor da avaliação atualizado",
+          details: "Valor original, índice de correção utilizado, data base, valor atualizado",
           critical: true
         },
         {
           id: "edit-5",
-          text: "Listar TODOS os débitos conhecidos",
-          details: "IPTU, condomínio, taxas, tributos - com valores",
+          text: "Data, horário e local do 1º leilão",
+          details: "Se eletrônico: plataforma e link / Se presencial: endereço, sala, horário exato",
           critical: true
         },
         {
           id: "edit-6",
-          text: "Definir forma de pagamento",
-          details: "À vista ou parcelado, prazos, juros se parcelado"
+          text: "Valor mínimo do 1º leilão",
+          details: "Geralmente o valor da avaliação atualizada (não aceita lance inferior)",
+          critical: true
         },
         {
           id: "edit-7",
-          text: "Estipular prazo para desocupação",
-          details: "Geralmente 60-180 dias após arrematação"
+          text: "Data, horário e local do 2º leilão",
+          details: "Mínimo 15 dias após o 1º leilão",
+          critical: true
         },
         {
           id: "edit-8",
-          text: "Informar estado de ocupação do imóvel",
-          details: "Vago, ocupado pelo devedor, terceiros, situação irregular"
+          text: "Valor mínimo do 2º leilão",
+          details: "Até 25% menor que o 1º leilão conforme Art. 891, §1º CPC",
+          critical: true
         },
         {
           id: "edit-9",
-          text: "Incluir dados do processo",
-          details: "Número, vara, partes, comarca"
+          text: "Incluir cláusula EXPRESSA do Art. 130 do CTN",
+          details: "Texto: 'Aplicável o Art. 130 do CTN - débitos tributários anteriores sub-rogam-se no preço'",
+          critical: true
         },
         {
           id: "edit-10",
-          text: "Especificar forma e horário de visitação",
-          details: "Contato, agendamento, observações sobre acesso"
+          text: "Listar TODOS os débitos conhecidos com valores",
+          details: "IPTU (R$ X, anos Y a Z), Condomínio (R$ X, até mês Y), taxas, contribuições",
+          critical: true
+        },
+        {
+          id: "edit-11",
+          text: "Listar TODOS os ônus registrados na matrícula",
+          details: "Hipotecas, penhoras anteriores, com nome dos credores e valores se conhecidos",
+          critical: true
+        },
+        {
+          id: "edit-12",
+          text: "Forma de pagamento",
+          details: "À vista ou parcelado, prazo para depósito (geralmente 15 dias), juros se parcelado, conta judicial"
+        },
+        {
+          id: "edit-13",
+          text: "Prazo para desocupação",
+          details: "Geralmente 60 a 180 dias após expedição da carta de arrematação"
+        },
+        {
+          id: "edit-14",
+          text: "Informar estado de ocupação REAL do imóvel",
+          details: "Vago / Ocupado pelo devedor / Ocupado por terceiro / Ocupação irregular",
+          critical: true
+        },
+        {
+          id: "edit-15",
+          text: "Dados do processo judicial completos",
+          details: "Nº do processo, vara, comarca, partes (exequente e executado)",
+          critical: true
+        },
+        {
+          id: "edit-16",
+          text: "Forma e horário de visitação ao imóvel",
+          details: "Contato para agendamento, dias/horários disponíveis, observações sobre acesso"
+        },
+        {
+          id: "edit-17",
+          text: "Nome do leiloeiro oficial designado",
+          details: "Nome completo, CNPJ/CPF, contato, nº de credenciamento no TJPE"
+        },
+        {
+          id: "edit-18",
+          text: "Informar sobre caução/depósito prévio",
+          details: "Percentual (geralmente 10-20%), forma de depósito, devolução se não arrematar"
+        },
+        {
+          id: "edit-19",
+          text: "Assinatura e data do edital",
+          details: "Assinado pelo Juiz titular ou substituto da vara"
         }
       ]
     },
     {
-      title: "4. Notificações Obrigatórias",
-      description: "Notificar todos os interessados conforme determina a lei",
+      title: "4. Notificações Obrigatórias Detalhadas",
+      description: "Notificar TODOS os interessados conforme determina a lei",
       items: [
         {
           id: "not-1",
-          text: "Notificar executado/devedor pessoalmente",
-          details: "Por oficial de justiça ou via postal com AR",
+          text: "Notificar EXECUTADO/DEVEDOR pessoalmente",
+          details: "Por oficial de justiça no endereço da matrícula e endereços conhecidos, ou via postal com AR",
           critical: true
         },
         {
           id: "not-2",
-          text: "Notificar cônjuge do executado",
-          details: "Mesmo se separado de fato",
+          text: "Se executado não localizado: edital de notificação",
+          details: "Publicar edital em jornal de grande circulação + site do tribunal",
           critical: true
         },
         {
           id: "not-3",
-          text: "Notificar credores com garantia real",
-          details: "Hipotecas, penhoras anteriores registradas"
+          text: "Notificar CÔNJUGE ou COMPANHEIRO(A) do executado",
+          details: "Mesmo que separado de fato - imóvel adquirido na constância do casamento/união estável",
+          critical: true
         },
         {
           id: "not-4",
-          text: "Notificar Fazenda Pública (federal, estadual, municipal)",
-          details: "Conforme débitos identificados"
+          text: "Se cônjuge em local incerto: edital específico",
+          details: "Edital de notificação do cônjuge separadamente",
+          critical: true
         },
         {
           id: "not-5",
-          text: "Notificar condomínio (se aplicável)",
-          details: "Síndico e administradora"
+          text: "Notificar CREDOR HIPOTECÁRIO (se houver)",
+          details: "Banco ou instituição financeira com hipoteca registrada na matrícula",
+          critical: true
         },
         {
           id: "not-6",
-          text: "Notificar ocupantes do imóvel",
-          details: "Se diferentes do executado"
+          text: "Notificar OUTROS CREDORES com garantia real",
+          details: "Credores com penhora anterior, anticrese, alienação fiduciária registrada",
+          critical: true
         },
         {
           id: "not-7",
-          text: "Documentar todas as notificações",
-          details: "Juntar ARs, certidões de oficial, editais publicados",
+          text: "Notificar FAZENDA PÚBLICA FEDERAL (União)",
+          details: "Via ofício à Procuradoria da Fazenda Nacional / Delegacia da Receita Federal"
+        },
+        {
+          id: "not-8",
+          text: "Notificar FAZENDA PÚBLICA ESTADUAL (Estado de PE)",
+          details: "Via ofício à Procuradoria Geral do Estado (PGE)"
+        },
+        {
+          id: "not-9",
+          text: "Notificar FAZENDA PÚBLICA MUNICIPAL (Prefeitura)",
+          details: "Via ofício à Procuradoria Municipal da cidade do imóvel - especialmente se há débitos de IPTU",
           critical: true
+        },
+        {
+          id: "not-10",
+          text: "Notificar CONDOMÍNIO (se aplicável)",
+          details: "Síndico e administradora, via AR com ofício anexando edital",
+          critical: true
+        },
+        {
+          id: "not-11",
+          text: "Notificar OCUPANTES do imóvel (se diferentes do executado)",
+          details: "Locatários, possuidores, ocupantes irregulares - via oficial de justiça"
+        },
+        {
+          id: "not-12",
+          text: "Notificar EXEQUENTE/CREDOR da data do leilão",
+          details: "Intimação via sistema processual ou publicação oficial"
+        },
+        {
+          id: "not-13",
+          text: "Documentar TODAS as notificações nos autos",
+          details: "Juntar ARs, certidões de oficial, ofícios com protocolo, editais com data de publicação",
+          critical: true
+        },
+        {
+          id: "not-14",
+          text: "Verificar prazos entre notificação e leilão",
+          details: "Mínimo de 20-30 dias entre última notificação e data do leilão"
         }
       ]
     },
     {
-      title: "5. Publicação e Divulgação",
-      description: "Garantir ampla publicidade do leilão",
+      title: "5. Publicação e Divulgação Oficial",
+      description: "Garantir ampla publicidade do leilão conforme exigências legais",
       items: [
         {
           id: "pub-1",
-          text: "Publicar edital no site do tribunal",
-          details: "Mínimo 20-30 dias antes do leilão",
+          text: "Publicar edital no SITE DO TJPE",
+          details: "Portal do tribunal - seção de leilões judiciais, mínimo 20-30 dias antes",
           critical: true
         },
         {
           id: "pub-2",
-          text: "Publicar em jornal de grande circulação",
-          details: "Conforme determinação judicial"
+          text: "Publicar edital no DIÁRIO OFICIAL ELETRÔNICO (DOE/PE)",
+          details: "Diário Oficial do Estado de Pernambuco - versão resumida ou completa conforme orientação",
+          critical: true
         },
         {
           id: "pub-3",
-          text: "Publicar no local de costume (fórum)",
-          details: "Mural de avisos da vara"
+          text: "Guardar comprovante de publicação no DOE",
+          details: "Imprimir página do DOE com data e edital, juntar aos autos",
+          critical: true
         },
         {
           id: "pub-4",
-          text: "Enviar edital ao leiloeiro designado",
-          details: "Com antecedência mínima de 20 dias"
+          text: "Publicar em JORNAL DE GRANDE CIRCULAÇÃO",
+          details: "Jornal local de grande circulação (ex: Diário de Pernambuco, Folha de Pernambuco)"
         },
         {
           id: "pub-5",
-          text: "Guardar comprovantes de todas as publicações",
-          details: "Imprimir páginas, recortes de jornal, fotos do mural"
+          text: "Guardar recorte/comprovante do jornal",
+          details: "Recorte original ou cópia da página com data visível",
+        },
+        {
+          id: "pub-6",
+          text: "Publicar no MURAL DE AVISOS do fórum",
+          details: "Local de costume - mural da vara ou entrada do fórum"
+        },
+        {
+          id: "pub-7",
+          text: "Fotografar publicação no mural",
+          details: "Foto com data visível, juntar aos autos como comprovação"
+        },
+        {
+          id: "pub-8",
+          text: "Enviar edital ao LEILOEIRO DESIGNADO",
+          details: "Via ofício ou e-mail institucional, com AR ou comprovante de recebimento, mínimo 20 dias antes"
+        },
+        {
+          id: "pub-9",
+          text: "Solicitar CERTIDÃO DA DIRETORIA CÍVEL",
+          details: "Certificar que todas as publicações foram realizadas conforme exigências legais"
+        },
+        {
+          id: "pub-10",
+          text: "Confirmar publicação em plataforma de leilão eletrônico",
+          details: "Se leilão online: verificar que imóvel está cadastrado e visível no site"
         }
       ]
     },
     {
-      title: "6. Realização do Leilão",
-      description: "Acompanhamento do dia do leilão",
+      title: "6. Designação e Comunicação com Leiloeiro",
+      description: "Procedimentos relacionados ao leiloeiro oficial",
       items: [
         {
           id: "leil-1",
-          text: "Confirmar designação e presença do leiloeiro",
-          details: "Credenciado e regularizado no tribunal"
+          text: "Verificar lista de leiloeiros credenciados no TJPE",
+          details: "Consultar lista atualizada no site do tribunal"
         },
         {
           id: "leil-2",
-          text: "Verificar sistema eletrônico funcionando",
-          details: "Se leilão online, testar plataforma"
+          text: "Designar leiloeiro por despacho judicial",
+          details: "Juiz designa leiloeiro específico ou permite escolha pela parte"
         },
         {
           id: "leil-3",
-          text: "Acompanhar se houve lances válidos",
-          details: "Valores acima do mínimo estabelecido"
+          text: "Expedir OFÍCIO ao leiloeiro designado",
+          details: "Com edital completo, prazo mínimo 20 dias antes do leilão",
+          critical: true
         },
         {
           id: "leil-4",
-          text: "Verificar se arrematante está habilitado",
-          details: "Documentação e caução depositada"
+          text: "Confirmar recebimento do ofício pelo leiloeiro",
+          details: "Via AR ou protocolo eletrônico"
         },
         {
           id: "leil-5",
-          text: "Lavrar auto de arrematação",
-          details: "Com todas as assinaturas (juiz, arrematante, leiloeiro)",
-          critical: true
+          text: "Verificar regularidade do leiloeiro",
+          details: "Certidão de credenciamento válida, sem suspensões ou impedimentos"
+        },
+        {
+          id: "leil-6",
+          text: "Confirmar que leiloeiro tomou ciência das datas",
+          details: "1º e 2º leilão, horários, modalidade (presencial/eletrônico)"
         }
       ]
     },
     {
-      title: "7. Após a Arrematação",
-      description: "Procedimentos pós-leilão",
+      title: "7. Verificações Finais Antes do Leilão",
+      description: "Checagem de segurança para evitar nulidades - última etapa",
+      items: [
+        {
+          id: "final-1",
+          text: "Revisar se TODAS as notificações foram feitas e juntadas",
+          details: "Executado, cônjuge, credores, fazendas públicas, condomínio, ocupantes",
+          critical: true
+        },
+        {
+          id: "final-2",
+          text: "Confirmar que edital menciona EXPRESSAMENTE Art. 130 CTN",
+          details: "Proteção ao arrematante é obrigatória - conferir redação",
+          critical: true
+        },
+        {
+          id: "final-3",
+          text: "Verificar que avaliação está válida (< 1 ano)",
+          details: "Conferir data da avaliação e data do leilão",
+          critical: true
+        },
+        {
+          id: "final-4",
+          text: "Confirmar que TODOS os débitos foram listados no edital",
+          details: "Omissão pode gerar responsabilização do servidor",
+          critical: true
+        },
+        {
+          id: "final-5",
+          text: "Conferir cumprimento dos prazos legais",
+          details: "Publicação, notificação, intervalo entre leilões (mínimo 15 dias)"
+        },
+        {
+          id: "final-6",
+          text: "Verificar se há decisão judicial autorizando o leilão",
+          details: "Despacho expresso do juiz determinando a alienação"
+        },
+        {
+          id: "final-7",
+          text: "Confirmar que não há embargos ou agravos pendentes",
+          details: "Consultar movimentação processual e recursos em andamento"
+        },
+        {
+          id: "final-8",
+          text: "Solicitar certidão da Diretoria que processo está em ordem",
+          details: "Certidão de que todas as exigências legais foram cumpridas"
+        }
+      ]
+    },
+    {
+      title: "8. Realização do Leilão",
+      description: "Acompanhamento do dia do leilão",
+      items: [
+        {
+          id: "real-1",
+          text: "Confirmar presença do leiloeiro designado",
+          details: "Credenciado, regularizado, com documentação em ordem"
+        },
+        {
+          id: "real-2",
+          text: "Verificar sistema eletrônico funcionando (se online)",
+          details: "Testar plataforma, login, cadastro de interessados"
+        },
+        {
+          id: "real-3",
+          text: "Acompanhar se houve lances válidos",
+          details: "Valores acima do mínimo estabelecido no edital"
+        },
+        {
+          id: "real-4",
+          text: "Verificar habilitação do arrematante",
+          details: "Documentação completa, caução depositada, capacidade civil"
+        },
+        {
+          id: "real-5",
+          text: "Lavrar AUTO DE ARREMATAÇÃO",
+          details: "Com todas as informações e assinaturas (juiz, arrematante, leiloeiro)",
+          critical: true
+        },
+        {
+          id: "real-6",
+          text: "Colher assinatura do JUIZ no auto",
+          details: "Assinatura física ou digital conforme sistema do tribunal",
+          critical: true
+        },
+        {
+          id: "real-7",
+          text: "Colher assinatura do ARREMATANTE no auto",
+          details: "Presencial ou digital, com identificação completa",
+          critical: true
+        },
+        {
+          id: "real-8",
+          text: "Colher assinatura do LEILOEIRO no auto",
+          details: "Confirmar identidade e credenciamento",
+          critical: true
+        },
+        {
+          id: "real-9",
+          text: "Se não houve lances: certificar o resultado",
+          details: "Leiloeiro certifica ausência de lances, juntar aos autos"
+        }
+      ]
+    },
+    {
+      title: "9. Após a Arrematação",
+      description: "Procedimentos pós-leilão até entrega do imóvel",
       items: [
         {
           id: "pos-1",
-          text: "Intimar arrematante para pagamento",
-          details: "Prazo conforme edital (geralmente 15 dias)"
+          text: "Intimar arrematante para PAGAMENTO",
+          details: "Prazo conforme edital (geralmente 15 dias úteis), forma de depósito",
+          critical: true
         },
         {
           id: "pos-2",
-          text: "Verificar pagamento integral",
-          details: "Depósito judicial ou forma prevista no edital",
+          text: "Verificar PAGAMENTO INTEGRAL do valor",
+          details: "Conferir depósito judicial ou transferência conforme edital",
           critical: true
         },
         {
           id: "pos-3",
-          text: "Expedir carta de arrematação",
-          details: "Após pagamento e trânsito em julgado"
+          text: "Aguardar prazo para oposição de embargos",
+          details: "5 dias após arrematação conforme Art. 901 CPC"
         },
         {
           id: "pos-4",
-          text: "Determinar distribuição do produto da arrematação",
-          details: "Conforme ordem legal de preferência dos credores"
+          text: "Se houver embargos: aguardar julgamento",
+          details: "Arrematação é irretratável, mas pode haver discussão"
         },
         {
           id: "pos-5",
-          text: "Verificar necessidade de imissão na posse",
-          details: "Se imóvel ocupado, expedir mandado"
+          text: "Determinar DISTRIBUIÇÃO do produto da arrematação",
+          details: "Conforme ordem legal: custas, tributos, credores com garantia, exequente",
+          critical: true
         },
         {
           id: "pos-6",
-          text: "Baixar penhora na matrícula do imóvel",
-          details: "Após expedição da carta de arrematação"
-        }
-      ]
-    },
-    {
-      title: "8. Verificações de Segurança",
-      description: "Checagem final para evitar nulidades",
-      items: [
+          text: "Expedir ALVARÁ para levantamento dos valores",
+          details: "Para cada credor conforme ordem de preferência"
+        },
         {
-          id: "seg-1",
-          text: "Revisar se todas as notificações foram feitas",
-          details: "Sem exceções, com comprovantes nos autos",
+          id: "pos-7",
+          text: "Expedir CARTA DE ARREMATAÇÃO",
+          details: "Após pagamento integral e trânsito em julgado (ou prazo de embargos)",
           critical: true
         },
         {
-          id: "seg-2",
-          text: "Confirmar que edital menciona Art. 130 CTN",
-          details: "Proteção ao arrematante é obrigatória",
+          id: "pos-8",
+          text: "Encaminhar carta ao CARTÓRIO DE REGISTRO DE IMÓVEIS",
+          details: "Para averbação da transferência e baixa da penhora"
+        },
+        {
+          id: "pos-9",
+          text: "Verificar necessidade de IMISSÃO NA POSSE",
+          details: "Se imóvel ocupado, expedir mandado de imissão na posse"
+        },
+        {
+          id: "pos-10",
+          text: "Determinar prazo para DESOCUPAÇÃO voluntária",
+          details: "Conforme previsto no edital (60-180 dias)"
+        },
+        {
+          id: "pos-11",
+          text: "Se necessário: expedir MANDADO DE IMISSÃO NA POSSE",
+          details: "Com ordem de desocupação forçada se necessário"
+        },
+        {
+          id: "pos-12",
+          text: "Acompanhar cumprimento da imissão",
+          details: "Oficial de justiça certifica desocupação e entrega das chaves"
+        },
+        {
+          id: "pos-13",
+          text: "BAIXAR A PENHORA na matrícula do imóvel",
+          details: "Ofício ao Cartório de Registro de Imóveis",
           critical: true
         },
         {
-          id: "seg-3",
-          text: "Verificar se avaliação está válida",
-          details: "Menos de 1 ano e valor de mercado real",
-          critical: true
-        },
-        {
-          id: "seg-4",
-          text: "Conferir se todos os débitos foram listados",
-          details: "Omissão pode gerar responsabilização",
-          critical: true
-        },
-        {
-          id: "seg-5",
-          text: "Confirmar cumprimento dos prazos legais",
-          details: "Publicação, notificação, intervalo entre leilões"
+          id: "pos-14",
+          text: "Arquivar processo se execução satisfeita",
+          details: "Ou prosseguir com saldo remanescente se houver"
         }
       ]
     }
@@ -380,10 +648,10 @@ const Checklist = () => {
           <div className="mt-4">
             <h1 className="text-3xl font-bold text-ms-blue flex items-center print:justify-center">
               <FileCheck className="mr-3 h-8 w-8" />
-              Checklist do Leilão Judicial
+              Checklist Completo do Leilão Judicial
             </h1>
             <p className="text-gray-600 mt-2 print:text-center">
-              Guia completo com mini-resumos para servidores
+              Guia detalhado para servidores do TJPE - Inclui DOE, Notificações e Diretoria Cível
             </p>
           </div>
         </div>
@@ -487,9 +755,21 @@ const Checklist = () => {
             <CardTitle className="text-sm">Legenda</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <AlertCircle className="h-4 w-4 text-red-500" />
-              <span>Itens críticos (obrigatórios) - Omissão pode causar nulidade</span>
+            <div className="space-y-2 text-sm text-gray-600">
+              <div className="flex items-center space-x-2">
+                <AlertCircle className="h-4 w-4 text-red-500" />
+                <span>Itens críticos (obrigatórios) - Omissão pode causar nulidade do leilão</span>
+              </div>
+              <div className="mt-3 p-3 bg-blue-50 rounded-lg">
+                <p className="font-semibold text-blue-900 mb-2">Observações Importantes:</p>
+                <ul className="list-disc list-inside space-y-1 text-gray-700">
+                  <li>Todos os prazos devem ser rigorosamente cumpridos</li>
+                  <li>Guarde TODOS os comprovantes de notificação e publicação</li>
+                  <li>Em caso de dúvida, consulte o juiz antes de prosseguir</li>
+                  <li>Publicação no DOE é obrigatória no TJPE</li>
+                  <li>Notificação de cônjuge é SEMPRE obrigatória</li>
+                </ul>
+              </div>
             </div>
           </CardContent>
         </Card>
