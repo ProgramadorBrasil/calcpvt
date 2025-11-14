@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { useTextToSpeech } from "@/hooks/useTextToSpeech";
-import { Volume2, VolumeX, Play, Pause, Square, Gauge } from "lucide-react";
+import { Volume2, VolumeX, Play, Pause, Square, Gauge, Subtitles } from "lucide-react";
 import { toast } from "sonner";
 
 interface VoiceControlProps {
@@ -11,6 +11,8 @@ interface VoiceControlProps {
 }
 
 const VoiceControl = ({ text }: VoiceControlProps) => {
+  const [showCaptions, setShowCaptions] = useState(true);
+
   const {
     speak,
     pause,
@@ -23,10 +25,12 @@ const VoiceControl = ({ text }: VoiceControlProps) => {
     setVolume,
     rate,
     setRate,
+    currentText,
   } = useTextToSpeech({
     lang: 'pt-BR',
-    volume: 0.8,
-    rate: 1,
+    volume: 1,
+    rate: 1.5,
+    pitch: 1.0,
   });
 
   useEffect(() => {
@@ -114,6 +118,17 @@ const VoiceControl = ({ text }: VoiceControlProps) => {
                 Parar
               </Button>
             )}
+
+            {/* Captions Toggle */}
+            <Button
+              onClick={() => setShowCaptions(!showCaptions)}
+              size="sm"
+              variant={showCaptions ? "default" : "outline"}
+              className={showCaptions ? "bg-purple-600 hover:bg-purple-700" : ""}
+            >
+              <Subtitles className="h-4 w-4 mr-2" />
+              Legendas
+            </Button>
           </div>
 
           {/* Volume Control */}
@@ -166,6 +181,17 @@ const VoiceControl = ({ text }: VoiceControlProps) => {
                 <div className="w-1 h-3 bg-blue-600 rounded-full"></div>
               </div>
               <span>{isPaused ? 'Pausado' : 'Reproduzindo...'}</span>
+            </div>
+          )}
+
+          {/* Live Captions */}
+          {showCaptions && isSpeaking && currentText && !isPaused && (
+            <div className="mt-4 p-4 bg-gray-900 text-white rounded-lg border-2 border-purple-500">
+              <div className="flex items-center space-x-2 mb-2">
+                <Subtitles className="h-4 w-4 text-purple-400" />
+                <span className="text-xs font-semibold text-purple-400 uppercase">Legenda ao Vivo</span>
+              </div>
+              <p className="text-lg leading-relaxed">{currentText}</p>
             </div>
           )}
         </div>

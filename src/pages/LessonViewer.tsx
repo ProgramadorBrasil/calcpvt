@@ -231,6 +231,25 @@ const LessonViewer = () => {
             </Button>
           )}
         </div>
+
+        {/* Credits Section */}
+        <Card className="mt-8 border-blue-200 bg-gradient-to-r from-blue-50 to-purple-50">
+          <CardContent className="p-6">
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+              <img
+                src="/calcpvt/logo.png"
+                alt="Logo"
+                className="h-16 w-16 object-contain"
+              />
+              <div className="text-center md:text-left">
+                <h3 className="font-bold text-lg text-blue-900">Renato Gracie</h3>
+                <p className="text-sm text-gray-700 font-semibold">Leiloeiro Oficial</p>
+                <p className="text-xs text-gray-600 mt-1">Cadastrado no Siajus desde 2007</p>
+                <p className="text-xs text-gray-600">Homologado no TJPE - JFPE e TRT6</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { courseLanding, courseModules } from "../data/courseContent";
 import { useCourseProgress } from "../hooks/useCourseProgress";
@@ -8,6 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import VoiceControl from "@/components/curso/VoiceControl";
 import {
   GraduationCap,
   BookOpen,
@@ -39,6 +40,22 @@ const Curso = () => {
   const totalModules = courseModules.length;
   const completedModules = Object.values(progress?.modulesProgress || {}).filter(m => m.completed).length;
   const totalHours = Math.round(courseModules.reduce((sum, m) => sum + m.estimatedMinutes, 0) / 60);
+
+  // Create pitch text for voice reading
+  const pitchText = useMemo(() => {
+    const texts: string[] = [];
+    texts.push(`Bem-vindo ao ${courseLanding.title}.`);
+    texts.push(courseLanding.description);
+    texts.push(`Este curso possui ${totalModules} módulos com duração total de aproximadamente ${totalHours} horas.`);
+    texts.push("Objetivos do curso:");
+    texts.push(...courseLanding.objectives.map((obj, idx) => `${idx + 1}. ${obj}`));
+    texts.push("Público-alvo:");
+    texts.push(...courseLanding.audience.map((aud, idx) => `${idx + 1}. ${aud}`));
+    texts.push("O que você vai aprender:");
+    texts.push(...courseLanding.outcomes.map((outcome, idx) => `${idx + 1}. ${outcome}`));
+    texts.push("Comece agora mesmo sua jornada de aprendizado!");
+    return texts.join('. ');
+  }, [totalModules, totalHours]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -98,6 +115,8 @@ const Curso = () => {
                 <CardDescription>{courseLanding.description}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
+                {/* Voice Control for Course Overview */}
+                <VoiceControl text={pitchText} />
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg">
                     <BookOpen className="h-8 w-8 text-ms-blue" />
@@ -351,6 +370,25 @@ const Curso = () => {
             </Card>
           </TabsContent>
         </Tabs>
+
+        {/* Credits Section */}
+        <Card className="mt-8 border-blue-200 bg-gradient-to-r from-blue-50 to-purple-50">
+          <CardContent className="p-6">
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+              <img
+                src="/calcpvt/logo.png"
+                alt="Logo"
+                className="h-16 w-16 object-contain"
+              />
+              <div className="text-center md:text-left">
+                <h3 className="font-bold text-lg text-blue-900">Renato Gracie</h3>
+                <p className="text-sm text-gray-700 font-semibold">Leiloeiro Oficial</p>
+                <p className="text-xs text-gray-600 mt-1">Cadastrado no Siajus desde 2007</p>
+                <p className="text-xs text-gray-600">Homologado no TJPE - JFPE e TRT6</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
