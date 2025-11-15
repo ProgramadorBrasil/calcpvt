@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-// import VoiceControl from "@/components/curso/VoiceControl";
+import VoiceControl from "@/components/curso/VoiceControl";
 import {
   GraduationCap,
   BookOpen,
@@ -18,7 +18,9 @@ import {
   Target,
   Users,
   FileText,
-  TrendingUp
+  TrendingUp,
+  HelpCircle,
+  ClipboardCheck
 } from "lucide-react";
 
 const Curso = () => {
@@ -116,7 +118,7 @@ const Curso = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Voice Control for Course Overview */}
-                {/* <VoiceControl text={pitchText} /> */}
+                <VoiceControl text={pitchText} />
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg">
                     <BookOpen className="h-8 w-8 text-ms-blue" />
@@ -184,6 +186,33 @@ const Curso = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+
+                {/* Quick Access Cards */}
+                <div className="grid md:grid-cols-2 gap-4 mt-6">
+                  <Card className="border-purple-200 bg-purple-50/50 hover:bg-purple-50 transition-colors cursor-pointer" onClick={() => navigate("/curso/faq")}>
+                    <CardContent className="p-4">
+                      <div className="flex items-center space-x-3">
+                        <HelpCircle className="h-10 w-10 text-purple-600" />
+                        <div>
+                          <h4 className="font-semibold text-purple-900">FAQ - Perguntas Frequentes</h4>
+                          <p className="text-sm text-purple-700">35+ perguntas sobre leilões judiciais</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-green-200 bg-green-50/50 hover:bg-green-50 transition-colors cursor-pointer" onClick={() => navigate("/curso/checklist")}>
+                    <CardContent className="p-4">
+                      <div className="flex items-center space-x-3">
+                        <ClipboardCheck className="h-10 w-10 text-green-600" />
+                        <div>
+                          <h4 className="font-semibold text-green-900">Checklist Completo</h4>
+                          <p className="text-sm text-green-700">100+ itens de verificação para leilões</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
 
                 <div className="pt-4 border-t">
