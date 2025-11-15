@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import VoiceControl from "@/components/curso/VoiceControl";
+// import VoiceControl from "@/components/curso/VoiceControl";
 import {
   GraduationCap,
   BookOpen,
@@ -116,7 +116,7 @@ const Curso = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Voice Control for Course Overview */}
-                <VoiceControl text={pitchText} />
+                {/* <VoiceControl text={pitchText} /> */}
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg">
                     <BookOpen className="h-8 w-8 text-ms-blue" />

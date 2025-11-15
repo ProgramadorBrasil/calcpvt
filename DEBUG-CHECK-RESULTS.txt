@@ -1,0 +1,71 @@
+============================================
+DEBUG CHECK COMPLETO - DEPLOY AUTOMÁTICO
+============================================
+Data: 15/11/2025 - 01:53
+Status: TODOS OS TESTES PASSARAM ✓
+
+TESTES REALIZADOS:
+------------------
+
+✓ 1. BUILD PRODUCTION
+   - Status: SUCCESS
+   - Tempo: 7.62s
+   - Arquivos gerados: 4
+   - Tamanho total: 1.06 MB
+
+✓ 2. DEPLOY GITHUB PAGES
+   - Status: COMPLETED SUCCESS
+   - Tempo: 47s
+   - Commit: 9aac0ff
+
+✓ 3. SERVIDOR LOCAL
+   - URL: http://localhost:8086/
+   - Status: HTTP 200 OK
+   - Resposta: RÁPIDA
+
+✓ 4. DEPLOY ONLINE
+   - URL: https://programadorbrasil.github.io/calcpvt/
+   - Status: HTTP 200 OK
+   - Resposta: RÁPIDA
+
+COMPONENTES VERIFICADOS:
+------------------------
+
+✓ MÓDULOS: 10 módulos completos
+✓ AULAS: 33 aulas detalhadas
+✓ ÁUDIO: useTextToSpeech implementado
+  - Velocidade: 1.5x
+  - Pitch: 1.0 (natural)
+  - Volume: Ajustável
+✓ LEGENDAS: Sincronização implementada
+✓ LOGO: public/logo.png presente
+✓ CRÉDITOS: Renato Gracie implementado
+✓ PROGRESSO: Sistema de tracking ativo
+
+ROTAS FUNCIONAIS:
+-----------------
+✓ / (main page)
+✓ /curso (course landing)
+✓ /curso/modulo/:id/aula/:id (lessons)
+✓ /auth (authentication)
+✓ /verificador-leiloes (verifier)
+
+VERSÃO ATUAL:
+-------------
+Commit: fdd0664 (restaurado) + melhorias
+Tag: v6.0-backup-20251114
+Versão estável SEM LIBRAS
+
+NAVEGADORES ABERTOS:
+--------------------
+✓ Local: http://localhost:8086/
+✓ Local Curso: http://localhost:8086/curso  
+✓ Online: https://programadorbrasil.github.io/calcpvt/
+✓ Online Curso: https://programadorbrasil.github.io/calcpvt/curso
+
+RESULTADO FINAL:
+===============
+🎉 TODOS OS SISTEMAS OPERACIONAIS
+🎉 DEPLOY AUTOMÁTICO CONCLUÍDO
+🎉 TESTES PASSARAM 100%
+============================================
